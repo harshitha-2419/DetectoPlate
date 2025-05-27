@@ -1,0 +1,80 @@
+/* General body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('https://images.unsplash.com/photo-1712524970738-6f55d9e8ebfe?q=80&w=2156&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Container for the content */
+.container {
+    max-width: 600px;
+    margin: 120px auto;
+    background: rgba(196, 152, 101, 0.85);
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* Header styling */  
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #080807;
+}
+
+header h2 {
+    margin: 5px 0 0 0;
+    font-weight: normal;
+    color: #555;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Button styling */
+button {
+    background-color: #0c0c0a;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0c0c0b;
+    opacity: 0.7;
+}
+
+/* Results area styling */
+#results {
+    background-color: #eef6fc;
+    border: 1px solid #b6d4fe;
+    padding: 15px;
+    border-radius: 4px;
+    white-space: pre-wrap;
+    min-height: 100px;
+    font-family: Consolas, monospace;
+    color: #0a0a0a;
+    margin-top: 20px;
+}

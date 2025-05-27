@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DetectoPlate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DetectoPlate</h1>
+            <h2>Upload Video for License Plate Detection</h2>
+        </header>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="video" accept="video/*" required />
+            <button type="submit">Upload</button>
+        </form>
+        <h2>Results:</h2>
+        <pre id="results"></pre>
+    </div>
+
+    <script>
+        const form = document.getElementById('uploadForm');
+        const results = document.getElementById('results');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            results.textContent = 'Processing...';
+
+            const formData = new FormData(form);
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                if (Array.isArray(data)) {
+                    results.textContent = data.join('\n');
+                } else {
+                    results.textContent = JSON.stringify(data, null, 2);
+                }
+            } else {
+                const error = await response.json();
+                results.textContent = 'Error: ' + (error.error || 'Unknown error');
+            }
+        });
+    </script>
+</body>
+</html>
